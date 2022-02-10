@@ -1,0 +1,22 @@
+{
+  "name": "telegraf-time-picker",
+  "version": "1.0.0",
+  "description": "Based on telegraf, this class generate a simple, inline-keyboard time picker.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noobj/telegraf-time-picker.git"
+  },
+  "keywords": [
+    "telegram"
+  ],
+  "author": "noobj",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/noobj/telegraf-time-picker/issues"
+  },
+  "homepage": "https://github.com/noobj/telegraf-time-picker#readme"
+}
