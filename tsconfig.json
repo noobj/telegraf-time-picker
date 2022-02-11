@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": true,
+        "declarationMap": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es2017",
+        "sourceMap": true,
+        "outDir": "./dist",
+        "baseUrl": "./",
+        "diagnostics": true,
+        "incremental": true,
+        "noImplicitReturns": true,
+        "noImplicitAny": true
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["test", "dist"]
+}
