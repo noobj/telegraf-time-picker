@@ -25,6 +25,8 @@ export class TimePicker {
         keyboards.push([
             { text: 'submit', callback_data: `time-picker-hour-submit ${hour}` }
         ]);
+
+        keyboards.push([{ text: 'cancel', callback_data: `time-picker-hour-cancel` }]);
         return Markup.inlineKeyboard(keyboards);
     }
 
@@ -64,6 +66,11 @@ export class TimePicker {
             await ctx.answerCbQuery();
             await ctx.deleteMessage(ctx.callbackQuery?.message?.message_id);
             await next(ctx, currentHour.toString());
+        });
+
+        this.bot.action('time-picker-hour-cancel', async (ctx: Context) => {
+            await ctx.deleteMessage(ctx.callbackQuery?.message?.message_id);
+            await ctx.answerCbQuery();
         });
     }
 }

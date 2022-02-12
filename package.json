@@ -1,41 +1,41 @@
 {
   "name": "telegraf-time-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Based on telegraf, this class generate a simple, inline-keyboard time picker.",
-  "main": "dist/index.js",
-  "scripts": {
-    "devbot": "NODE_ENV=dev tsc-watch -p tsconfig.json --onSuccess \"node -r source-map-support/register -r ts-node/register/transpile-only -r tsconfig-paths/register dist/bot.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/noobj/telegraf-time-picker.git"
-  },
   "keywords": [
     "telegram",
     "bot",
     "telegraf"
   ],
+  "homepage": "https://github.com/noobj/telegraf-time-picker#readme",
+  "bugs": {
+    "url": "https://github.com/noobj/telegraf-time-picker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noobj/telegraf-time-picker.git"
+  },
+  "license": "Apache-2.0",
+  "author": "noobj",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "src/**/*.ts",
     "dist/**/*.js"
   ],
-  "types": "dist/index.d.ts",
-  "author": "noobj",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/noobj/telegraf-time-picker/issues"
+  "scripts": {
+    "devbot": "NODE_ENV=dev tsc-watch -p tsconfig.json --onSuccess \"node -r source-map-support/register -r ts-node/register/transpile-only -r tsconfig-paths/register dist/bot.js\"",
+    "prepublish": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/noobj/telegraf-time-picker#readme",
   "dependencies": {
     "telegraf": "^4.7.0"
   },
   "devDependencies": {
-    "dotenv": "^16.0.0",
     "@types/node": "^17.0.17",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@typescript-eslint/parser": "^5.11.0",
+    "dotenv": "^16.0.0",
     "eslint": "^8.8.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
