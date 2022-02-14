@@ -23,7 +23,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 const timePicker = new TimePicker(bot);
 
 // pass the callback to setTimePickerListener()
-timePicker.setTimePickerListener((context, date) => context.reply(date));
+timePicker.setTimePickerListener((context, time) => context.reply(time));
 
 // retreive the time picker interface
 bot.command('timepicker', (context) => {

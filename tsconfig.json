@@ -14,7 +14,8 @@
         "diagnostics": true,
         "incremental": true,
         "noImplicitReturns": true,
-        "noImplicitAny": true
+        "noImplicitAny": true,
+        "forceConsistentCasingInFileNames": true
     },
     "exclude": ["dist/**/*"]
 }

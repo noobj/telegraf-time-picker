@@ -1,6 +1,6 @@
 {
   "name": "telegraf-time-picker",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Based on telegraf, this class generate a simple, inline-keyboard time picker.",
   "keywords": [
     "telegram",
@@ -17,8 +17,8 @@
   },
   "license": "Apache-2.0",
   "author": "noobj",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "files": [
     "src/**/*.ts",
     "dist/**/*.js",
@@ -26,7 +26,7 @@
     "dist/**/*.d.ts.map"
   ],
   "scripts": {
-    "devbot": "NODE_ENV=dev tsc-watch -p tsconfig.json --onSuccess \"node -r source-map-support/register -r ts-node/register/transpile-only -r tsconfig-paths/register dist/src/bot.js\"",
+    "devbot": "NODE_ENV=dev tsc-watch -p tsconfig.json --onSuccess \"node -r source-map-support/register -r ts-node/register/transpile-only -r tsconfig-paths/register dist/bot/bot.js\"",
     "prepublish": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
