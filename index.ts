@@ -1,4 +1,5 @@
 import { Context, Markup, Telegraf, deunionize } from 'telegraf';
+import { HourExpression } from './enums/hour-expression.enum';
 
 export class TimePicker {
     constructor(private bot: Telegraf, private options?: any) {}
@@ -6,9 +7,17 @@ export class TimePicker {
     /**
      * Get the Markup of the time-picker
      */
-    getTimePicker(hour: string) {
+    getTimePicker(hour: HourExpression | number) {
+        // check the input
+        if ((<any>HourExpression)[hour] === undefined) throw new Error('Wrong Input');
+
         const keyboards = [
-            [{ text: `${hour}:00`, callback_data: 'time-picker-hour-plus-null' }]
+            [
+                {
+                    text: `${hour}:00`,
+                    callback_data: 'time-picker-hour-plus-null'
+                }
+            ]
         ];
 
         keyboards.push([
@@ -33,7 +42,7 @@ export class TimePicker {
     /**
      * Set the callback that will be called when submit is pressed
      */
-    setTimePickerListener(next: (ctx: Context, time: string) => any) {
+    setTimePickerListener(next: (ctx: Context, hour: HourExpression) => any) {
         this.bot.action(/time-picker-hour-(plus|minus) (\d+)/, (ctx: Context) => {
             // @ts-expect-error define so far unknown property `match`
             const operation = ctx?.match[1];
@@ -46,12 +55,13 @@ export class TimePicker {
                     : --currentHour < 0
                     ? 23
                     : currentHour;
+
             return ctx
                 .answerCbQuery()
                 .then(() =>
                     ctx.editMessageText(
                         deunionize(ctx.callbackQuery.message)?.text,
-                        this.getTimePicker(editedHour.toString())
+                        this.getTimePicker(editedHour)
                     )
                 );
         });
@@ -62,10 +72,8 @@ export class TimePicker {
 
         this.bot.action(/time-picker-hour-submit (\d+)/, async (ctx: Context) => {
             // @ts-expect-error define so far unknown property `match`
-            const currentHour = +ctx?.match[1];
-            await ctx.answerCbQuery();
-            await ctx.deleteMessage(ctx.callbackQuery?.message?.message_id);
-            await next(ctx, currentHour.toString());
+            const currentHour = ctx?.match[1];
+            await next(ctx, +currentHour);
         });
 
         this.bot.action('time-picker-hour-cancel', async (ctx: Context) => {

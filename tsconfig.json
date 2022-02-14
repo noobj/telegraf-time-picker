@@ -9,13 +9,12 @@
         "allowSyntheticDefaultImports": true,
         "target": "es2017",
         "sourceMap": true,
-        "outDir": "./dist",
-        "baseUrl": "./",
+        "outDir": "dist",
+        "baseUrl": ".",
         "diagnostics": true,
         "incremental": true,
         "noImplicitReturns": true,
         "noImplicitAny": true
     },
-    "include": ["src/**/*.ts"],
-    "exclude": ["test", "dist"]
+    "exclude": ["dist/**/*"]
 }
