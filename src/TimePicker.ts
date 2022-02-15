@@ -43,7 +43,7 @@ export class TimePicker {
      * Set the callback that will be called when submit is pressed
      */
     setTimePickerListener(next: (ctx: Context, hour: HourExpression) => any) {
-        this.bot.action(/time-picker-hour-(plus|minus) (\d+)/, (ctx: Context) => {
+        this.bot.action(/time-picker-hour-(plus|minus) (\d+)/, async (ctx: Context) => {
             // @ts-expect-error define so far unknown property `match`
             const operation = ctx?.match[1];
             // @ts-expect-error define so far unknown property `match`
@@ -56,14 +56,13 @@ export class TimePicker {
                     ? 23
                     : currentHour;
 
-            return ctx
-                .answerCbQuery()
-                .then(() =>
-                    ctx.editMessageText(
-                        deunionize(ctx.callbackQuery.message)?.text,
-                        this.getTimePicker(editedHour)
-                    )
-                );
+            await Promise.all([
+                ctx.answerCbQuery(),
+                ctx.editMessageText(
+                    deunionize(ctx.callbackQuery.message)?.text,
+                    this.getTimePicker(editedHour)
+                )
+            ]);
         });
 
         this.bot.action('time-picker-hour-plus-null', (ctx: Context) =>
@@ -77,8 +76,7 @@ export class TimePicker {
         });
 
         this.bot.action('time-picker-hour-cancel', async (ctx: Context) => {
-            await ctx.deleteMessage(ctx.callbackQuery?.message?.message_id);
-            await ctx.answerCbQuery();
+            await Promise.all([ctx.deleteMessage(), ctx.answerCbQuery()]);
         });
     }
 }
