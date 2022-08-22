@@ -1,6 +1,6 @@
 {
-    "name": "telegraf-time-picker",
-    "version": "1.0.7",
+    "name": "telegraf-time-picker-with-minute",
+    "version": "1.0.9",
     "description": "Based on telegraf, this class generate a simple, inline-keyboard time picker.",
     "keywords": [
         "telegram",

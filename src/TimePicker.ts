@@ -98,7 +98,7 @@ export class TimePicker {
                         ? (currentMinute + 5) % 60
                         : currentMinute - 5 < 0
                         ? 55
-                        : currentMinute;
+                        : currentMinute - 5;
 
                 let editedHour =
                     operation === 'plus' && currentMinute === 55
