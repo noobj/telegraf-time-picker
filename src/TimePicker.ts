@@ -64,7 +64,7 @@ export class TimePicker {
                 // @ts-expect-error define so far unknown property `match`
                 let currentHour = +ctx?.match[2];
                 // @ts-expect-error define so far unknown property `match`
-                let currentMinute = ctx?.match[3];
+                const currentMinute = ctx?.match[3];
 
                 const editedHour =
                     operation === 'plus'
@@ -90,9 +90,8 @@ export class TimePicker {
                 // @ts-expect-error define so far unknown property `match`
                 let currentHour = +ctx?.match[2];
                 // @ts-expect-error define so far unknown property `match`
-                let currentMinute = parseInt(ctx?.match[3]);
+                const currentMinute = parseInt(ctx?.match[3]);
 
-                console.log({ currentHour, currentMinute });
                 const editedMinute =
                     operation === 'plus'
                         ? (currentMinute + 5) % 60
@@ -109,8 +108,6 @@ export class TimePicker {
                     operation === 'minus' && currentMinute === 0
                         ? currentHour - 1
                         : currentHour;
-
-                console.log({ editedHour, editedMinute });
 
                 await Promise.all([
                     ctx.answerCbQuery(),

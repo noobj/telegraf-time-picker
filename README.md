@@ -1,7 +1,6 @@
-# telegraf-time-picker-with-minute
+# telegraf-time-picker
 
 Inline time picker for Telegram bots using Telegraf framework.
-Based on a fork of telegraf-time-picker
 
 # Description
 
@@ -12,7 +11,7 @@ Using this simple inline time picker you can select the time by clicking. This l
 ## Installation
 
 ```
-npm i telegraf-time-picker-with-minute --save
+npm i telegraf-time-picker --save
 ```
 
 ## Basic usage
