@@ -7,7 +7,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 const timePicker = new TimePicker(bot);
 
 timePicker.setTimePickerListener(async (context, hour, minute) => {
-    await context.reply(`${hour.toString()}:${minute.toString}`);
+    await context.reply(`${hour.toString()}:${minute.toString()}`);
     await context.deleteMessage(context.callbackQuery?.message?.message_id);
     await context.answerCbQuery();
 });

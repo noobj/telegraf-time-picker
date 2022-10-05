@@ -36,3 +36,16 @@ bot.command('timepicker', (context) => {
 ## Example
 
 You can reference [here](./src/bot.ts), a simple working bot.
+
+## How To Run
+
+Setting the BOT_TOKEN in .env and compile the typescript code.
+
+Run the bot:
+```
+node dist/bot/bot.js
+```
+
+Open your TG bot and type "/tp", you should see the following interface
+
+<img src="./demo.png">
